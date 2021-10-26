@@ -5,7 +5,7 @@ module.exports = async function(msg, args){
     
     var message = new Discord.MessageEmbed()
         .setColor('#ff5f6d')
-        .setDescription('Popis naredbi pronađi na [linku](https://github.com/x-fer/xfer-discord-bot/blob/main/COMMANDS.md).')
+        .setDescription('Popis naredbi pronađi na [linku](https://github.com/x-fer/xfer-discord-bot/blob/master/COMMANDS.md).')
 
     msg.channel.send( {embeds: [message]} );
 }

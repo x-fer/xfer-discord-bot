@@ -1,11 +1,11 @@
 const Discord = require('discord.js')
 
 module.exports = async function(msg, args){
-    console.log('called help!');
-    
+    console.log('called ferweb!');
+
     var message = new Discord.MessageEmbed()
         .setColor('#ff5f6d')
-        .setDescription('Popis naredbi pronađi na [linku](https://github.com/x-fer/xfer-discord-bot/blob/master/COMMANDS.md).');
+        .setDescription('Prezentacije s predavanja i druge sadržaje pronađi na [FER Webu](https://www.fer.unizg.hr/predmet/natpro)!');
 
     msg.channel.send( {embeds: [message]} );
 }

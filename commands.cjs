@@ -6,10 +6,11 @@ module.exports = async (msg) => {
     var tokens = msg.content.split(' ');
     var first = tokens.shift();
 
-    var channelId = msg.channel.id
+    var channelId = msg.channel.id;
 
     if(first == '-xfer' && channelId == '902631889997803520'){
         var tag = tokens.shift();
+        tag = tag.toLowerCase();
 
         try{
             commands[tag](msg, tokens);

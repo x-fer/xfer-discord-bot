@@ -51,6 +51,18 @@ Primjer korištenja:
 
 ![moj-natpro](static/img/commands/moj-natpro.png)
 
+## prosjek
+
+Naredba koja vraća prosječnu vrijednost težine riješenih zadataka za zadanog Codeforces korisnika. 
+
+Argumenti naredbe:
+- `userID` - string
+
+Primjer korištenja:
+
+![prosjek](static/img/commands/prosjek.png)
+
+
 ## unknown-command
 
 Naredba koja se automatski poziva svaki put kad korisnik pozove naredbu koja ne postoji, praktički ne služi ničemu.

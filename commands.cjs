@@ -1,4 +1,3 @@
-// import requireDir from 'require-dir';
 const requireDir = require('require-dir')
 const commands = requireDir('./commands', {extensions: ['.cjs']});
 
@@ -8,14 +7,15 @@ module.exports = async (msg) => {
 
     var channelId = msg.channel.id;
 
-    if(first == '-xfer' && channelId == '902631889997803520'){
+    var commandKeyword = '-' + (process.env.LOCAL_TESTING_COMMAND || 'xfer');
+
+    if(first == commandKeyword && channelId == '902631889997803520'){
         var tag = tokens.shift();
         tag = tag.toLowerCase();
 
         try{
             commands[tag](msg, tokens);
         }catch(err){
-            console.log('kriva komanda');
             commands['unknown-command'](msg, tokens);
         }
         

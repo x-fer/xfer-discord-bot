@@ -5,7 +5,11 @@ module.exports = async function(msg, args){
     console.log('called cf!');
 
     if(args.length == 0){
-        msg.channel.send('You must provide a CF handle! E.g. -tmtr cf ivaneo');
+        var message = new Discord.MessageEmbed()
+                .setColor('#ff5f6d')
+                .setDescription('You must provide a CF handle! E.g. \`-xfer cf ivaneo\`');
+
+        msg.channel.send({embeds: [message]});
     }else{
         var handle = args.shift();
 
@@ -13,10 +17,12 @@ module.exports = async function(msg, args){
         let response = await fetch(url);
         let json = await response.json();
 
-        // console.log(json);
-
         if(json.status != 'OK'){
-            msg.channel.send('Something went wrong while fetching user info!');
+            var message = new Discord.MessageEmbed()
+                .setColor('#ff5f6d')
+                .setDescription('Something went wrong while fetching user info!');
+
+            msg.channel.send({embeds: [message]});
         }else{
             
             var message = new Discord.MessageEmbed()
@@ -25,8 +31,8 @@ module.exports = async function(msg, args){
                 .setColor('#ff5f6d')
                 .setURL(`https://codeforces.com/profile/${json.result[0].handle}`)
                 .addFields(
-                    { name: 'Current rating: ', value: String(json.result[0].rating), inline: true},
-                    { name: 'Current title: ', value: String(json.result[0].rank), inline: true},
+                    { name: 'Trenutni rating: ', value: String(json.result[0].rating), inline: true},
+                    { name: 'Trenutni title: ', value: String(json.result[0].rank), inline: true},
                     { name: 'Max. rating: ', value: String(json.result[0].maxRating), inline: true},
                     { name: 'Max. title: ', value: String(json.result[0].maxRank), inline: true}
                 );

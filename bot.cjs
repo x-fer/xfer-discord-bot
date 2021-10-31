@@ -9,4 +9,4 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', () => console.log('The bot is ready.'));
 
-client.on('message', commandHandler);
+client.on('messageCreate', commandHandler);

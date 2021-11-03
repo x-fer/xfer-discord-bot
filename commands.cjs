@@ -8,8 +8,12 @@ module.exports = async (msg) => {
     var channelId = msg.channel.id;
 
     var commandKeyword = '-' + (process.env.LOCAL_TESTING_COMMAND || 'xfer');
+    var isAllowedToRespond = true;
+    if(process.env.LOCAL_TESTING_CHANNEL) {
+        isAllowedToRespond = (channelId == process.env.LOCAL_TESTING_CHANNEL);
+    }
 
-    if(first == commandKeyword && channelId == '902631889997803520'){
+    if(first == commandKeyword && isAllowedToRespond){
         var tag = tokens.shift();
         tag = tag.toLowerCase();
 
